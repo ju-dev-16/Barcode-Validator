@@ -32,4 +32,15 @@ public class Converter {
         return intList;
     }
 
+    public String castIntListToStr(List<Integer> list) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+    
+        for (Integer i : list) {
+            stringBuilder.append(String.valueOf(i));
+        }
+
+        return stringBuilder.toString();
+    }
+
 }
