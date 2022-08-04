@@ -17,19 +17,27 @@ class BarcodeScanner {
 
             String input = barcodeQuery();
 
-            int checkDigit = Integer.parseInt(input.substring(input.length() - 1)); 
+            try {
+                
+                int checkDigit = Integer.parseInt(input.substring(input.length() - 1)); 
 
-            String barcode = input.substring(0, input.length() - 1);
-
-            if (barcode.length() == 12) {
-
-                List<Integer> multipliedBarcode = multiplyList(barcode); // 1. Jede Ziffer mal 3 multiplizieren
-
-                List<Integer> checksum = checksumCalculator.calculate(multipliedBarcode); // 2. Quersumme berechnen
+                String barcode = input.substring(0, input.length() - 1);
     
-                validateBarcode(checksum, checkDigit); // 3. Durch die nächste durch 10 teilbare Zahl ergänzen
+                if (barcode.length() == 12) {
+    
+                    List<Integer> multipliedBarcode = multiplyList(barcode); // 1. Jede Ziffer mal 3 multiplizieren
+    
+                    List<Integer> checksum = checksumCalculator.calculate(multipliedBarcode); // 2. Quersumme berechnen
+        
+                    validateBarcode(checksum, checkDigit); // 3. Durch die nächste durch 10 teilbare Zahl ergänzen
+    
+                } else {
+    
+                    System.out.println("\nDer Barcode ist ungültig.\n");
+    
+                }
 
-            } else {
+            } catch (NumberFormatException nfe) {
 
                 System.out.println("\nDer Barcode ist ungültig.\n");
 
