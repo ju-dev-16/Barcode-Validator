@@ -102,7 +102,7 @@ class BarcodeValidator {
         return multipliedList;
     }
 
-    public static List<Integer> calculateChecksum(List<Integer> numbers) {
+    private static List<Integer> calculateChecksum(List<Integer> numbers) {
 
         Integer result = 0;
 
